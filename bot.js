@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '#o'
+const prefix = '$'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -106,19 +106,5 @@ client.on("message", message => {
             return;
         }
     });
-
-
- client.on('message', msg =>{
-    let message=msg;
-    if(message.content.startsWith("#obc")){
-        var args = message.content.split(' ').slice(1).join(' ');
-    msg.guild.members.forEach(m=>{
-        m.send(args.replace(/[user]/g,m)).catch();
-    if(message.attachments.first()){
-m.sendFile(message.attachments.first().url).catch();
-    }
-    })    ;
-    }
-});
 
 client.login(process.env.BOT_TOKEN);
